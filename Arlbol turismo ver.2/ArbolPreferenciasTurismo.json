@@ -1,0 +1,153 @@
+{
+  "nombre": "Tipo de turismo",
+  "hijos": [
+    {
+      "nombre": "Religioso",
+      "hijos": [
+        {
+          "nombre": "Catedrales",
+          "hijos": [
+            {
+              "nombre": "Tour de catedrales",
+              "hijos": []
+            },
+            {
+              "nombre": "Tour de catacumbas",
+              "hijos": []
+            }
+          ]
+        },
+        {
+          "nombre": "Procesiones de Semana Santa",
+          "hijos": [
+            {
+              "nombre": "Recorrido de procesiones",
+              "hijos": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Cultural",
+      "hijos": [
+        {
+          "nombre": "Museos",
+          "hijos": [
+            {
+              "nombre": "Natural",
+              "hijos": [
+                {
+                  "nombre": "Museo de Historia Natural Universidad del Cauca",
+                  "hijos": []
+                }
+              ]
+            },
+            {
+              "nombre": "Histórico",
+              "hijos": [
+                {
+                  "nombre": "Casa Mosquera",
+                  "hijos": []
+                },
+                {
+                  "nombre": "Casa Guillermo León Valencia",
+                  "hijos": []
+                }
+              ]
+            },
+            {
+              "nombre": "De arte",
+              "hijos": [
+                {
+                  "nombre": "Museo Arquidiocesano de Arte Religioso",
+                  "hijos": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Gastronomía",
+          "hijos": [
+            {
+              "nombre": "Recorrido por restaurantes icónicos de la ciudad",
+              "hijos": []
+            }
+          ]
+        },
+        {
+          "nombre": "Sitios históricos",
+          "hijos": [
+            {
+              "nombre": "Recorrido centro histórico",
+              "hijos": []
+            },
+            {
+              "nombre": "Recorrido Pueblito Patojo",
+              "hijos": []
+            },
+            {
+              "nombre": "Historia Puente del Humilladero",
+              "hijos": []
+            },
+            {
+              "nombre": "Recorrido general de todos los sitios",
+              "hijos": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Diversión",
+      "hijos": [
+        {
+          "nombre": "Parques recreativos",
+          "hijos": [
+            {
+              "nombre": "Parques naturales",
+              "hijos": [
+                {
+                  "nombre": "Coconuco",
+                  "hijos": []
+                }
+              ]
+            },
+            {
+              "nombre": "Parques deportivos",
+              "hijos": [
+                {
+                  "nombre": "Pisojeo",
+                  "hijos": []
+                },
+                {
+                  "nombre": "Villa Olímpica",
+                  "hijos": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Expedición volcanes",
+          "hijos": [
+            {
+              "nombre": "Expedición volcán Puracé",
+              "hijos": []
+            }
+          ]
+        },
+        {
+          "nombre": "Discotecas",
+          "hijos": [
+            {
+              "nombre": "Recorrido zona rosa (Bulevar del Río)",
+              "hijos": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

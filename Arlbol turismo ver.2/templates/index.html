@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo Popayán - Planes a tu medida</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="hero">
+            <h1>Turismo en Popayán</h1>
+            <p>Descubre los mejores planes adaptados a ti</p>
+        </header>
+
+        <main id="main-content">
+            <!-- Dynamic Content Area -->
+            <div id="tree-container" class="card fade-in">
+                <!-- Initial loader -->
+                <div class="loader-container">
+                    <div class="spinner"></div>
+                    <p>Iniciando experiencia...</p>
+                </div>
+            </div>
+
+            <!-- Filter Area (Initially hidden) -->
+            <div id="filter-container" class="card fade-in" style="display: none;">
+                <h2>Refina tu búsqueda</h2>
+                <form id="filter-form">
+                    <div class="form-group">
+                        <label>¿Cuántos días dura tu viaje?</label>
+                        <select id="filter-dias" required>
+                            <option value="1">1 Día</option>
+                            <option value="2">2 Días</option>
+                            <option value="3">3 Días</option>
+                            <option value="4">4 Días</option>
+                            <option value="5">5 Días</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Idiomas permitidos (ej: español, inglés)</label>
+                        <input type="text" id="filter-idiomas" placeholder="Opcional - Deja vacío para cualquiera">
+                    </div>
+                    <div class="form-group">
+                        <label>¿Requiere reserva?</label>
+                        <select id="filter-reserva">
+                            <option value="indiferente">Indiferente</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Horario preferido</label>
+                        <select id="filter-horario">
+                            <option value="">Indiferente</option>
+                            <option value="mañana">Mañana</option>
+                            <option value="tarde">Tarde</option>
+                            <option value="noche">Noche</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Prefieres eventos especiales?</label>
+                        <select id="filter-evento">
+                            <option value="indiferente">Indiferente</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Presupuesto</label>
+                        <select id="filter-presupuesto">
+                            <option value="">Indiferente</option>
+                            <option value="bajo">Bajo</option>
+                            <option value="medio">Medio</option>
+                            <option value="alto">Alto</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Generar Recomendaciones ✨</button>
+                </form>
+            </div>
+
+            <!-- Loading overlay for Groq generation -->
+            <div id="generate-loader" class="loader-container fade-in" style="display: none;">
+                <div class="spinner"></div>
+                <p>Nuestra IA está preparando tus recomendaciones...</p>
+            </div>
+
+            <!-- Results container -->
+            <div id="results-container" style="display: none;">
+                <h2>Tu Itinerario Personalizado</h2>
+                <div id="itinerary-container" style="width: 100%;"></div>
+                
+                <div style="margin-top: 2rem;">
+                    <button class="btn-secondary" onclick="location.reload()">Empezar de nuevo</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

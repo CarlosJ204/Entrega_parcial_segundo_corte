@@ -1,0 +1,74 @@
+[
+  {
+    "id": "turista_express",
+    "nombre": "Turista Express de Bajo Presupuesto",
+    "descripcion": "Ideal para personas que solo están de paso y no quieren gastar mucho.",
+    "tags": {
+      "dias_viaje": 1,
+      "idiomas_requeridos": [
+        "español"
+      ],
+      "prefiere_reserva": "no",
+      "horario": "indiferente",
+      "prefiere_evento_especial": "no",
+      "precio": "bajo"
+    }
+  },
+  {
+    "id": "explorador_cultural_vip",
+    "nombre": "Explorador Cultural VIP",
+    "descripcion": "Para aquellos que buscan la mejor experiencia cultural y eventos especiales, sin importar el precio.",
+    "tags": {
+      "dias_viaje": 3,
+      "idiomas_requeridos": [
+        "español",
+        "inglés"
+      ],
+      "prefiere_reserva": "si",
+      "horario": "mañana",
+      "prefiere_evento_especial": "si",
+      "precio": "alto"
+    }
+  },
+  {
+    "id": "familia_planificada",
+    "nombre": "Familia Planificada",
+    "descripcion": "Viaje de varios días con reservas previas para evitar inconvenientes.",
+    "tags": {
+      "dias_viaje": 4,
+      "idiomas_requeridos": [
+        "español"
+      ],
+      "prefiere_reserva": "si",
+      "horario": "tarde",
+      "prefiere_evento_especial": "indiferente",
+      "precio": "medio"
+    }
+  },
+  {
+    "id": "aventurero_bilingue",
+    "nombre": "Aventurero Bilingüe Relajado",
+    "descripcion": "Viajero internacional sin prisa que busca adaptarse a lo que encuentre.",
+    "tags": {
+      "dias_viaje": 5,
+      "idiomas_requeridos": [
+        "español",
+        "inglés"
+      ],
+      "prefiere_reserva": "indiferente",
+      "horario": "indiferente",
+      "prefiere_evento_especial": "indiferente",
+      "precio": "medio"
+    }
+  },
+  {
+    "id": "custom_1776998701",
+    "nombre": "Plan ejemplo 1",
+    "descripcion": "N/A",
+    "tags": {
+      "dias_viaje": 4,
+      "prefiere_reserva": "no",
+      "prefiere_evento_especial": "no"
+    }
+  }
+]

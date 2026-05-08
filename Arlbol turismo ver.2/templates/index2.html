@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo Popayán - Perfiles de Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .profile-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .profile-card h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .profile-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .profile-tag {
+            font-size: 0.75rem;
+            background: rgba(46, 196, 182, 0.2);
+            color: var(--secondary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="hero">
+            <h1>Turismo en Popayán</h1>
+            <p>Selecciona un perfil y descubre tu plan ideal</p>
+        </header>
+
+        <main id="main-content">
+            <!-- Dynamic Content Area -->
+            <div id="tree-container" class="card fade-in">
+                <!-- Initial loader -->
+                <div class="loader-container">
+                    <div class="spinner"></div>
+                    <p>Iniciando experiencia...</p>
+                </div>
+            </div>
+
+            <!-- Profiles Area (Initially hidden) -->
+            <div id="profiles-container" class="card fade-in" style="display: none; width: 100%; max-width: 800px;">
+                <h2>Selecciona tu perfil de viajero</h2>
+                <p style="text-align: center; color: var(--gray); margin-bottom: 1rem;">Hemos adaptado estos perfiles según tus decisiones anteriores.</p>
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <button id="btn-show-create" class="btn-secondary">+ Crear mi propio perfil</button>
+                </div>
+                
+                <div id="create-profile-container" class="card fade-in" style="display: none; margin-bottom: 2rem; border: 1px solid var(--secondary);">
+                    <h3>Crear Nuevo Perfil</h3>
+                    <form id="create-profile-form">
+                        <div class="form-group">
+                            <label>Nombre del perfil</label>
+                            <input type="text" id="cp-nombre" required placeholder="Ej: Mi Viaje Perfecto">
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <input type="text" id="cp-descripcion" placeholder="Opcional">
+                        </div>
+                        <div class="form-group">
+                            <label>¿Cuántos días dura tu viaje?</label>
+                            <select id="cp-dias" required>
+                                <option value="1">1 Día</option>
+                                <option value="2">2 Días</option>
+                                <option value="3">3 Días</option>
+                                <option value="4">4 Días</option>
+                                <option value="5">5 Días</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Idiomas permitidos (ej: español, inglés)</label>
+                            <input type="text" id="cp-idiomas" placeholder="Opcional - Deja vacío para cualquiera">
+                        </div>
+                        <div class="form-group">
+                            <label>¿Requiere reserva?</label>
+                            <select id="cp-reserva">
+                                <option value="indiferente">Indiferente</option>
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Horario preferido</label>
+                            <select id="cp-horario">
+                                <option value="indiferente">Indiferente</option>
+                                <option value="mañana">Mañana</option>
+                                <option value="tarde">Tarde</option>
+                                <option value="noche">Noche</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>¿Prefieres eventos especiales?</label>
+                            <select id="cp-evento">
+                                <option value="indiferente">Indiferente</option>
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Presupuesto</label>
+                            <select id="cp-presupuesto">
+                                <option value="indiferente">Indiferente</option>
+                                <option value="bajo">Bajo</option>
+                                <option value="medio">Medio</option>
+                                <option value="alto">Alto</option>
+                            </select>
+                        </div>
+                        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                            <button type="submit" class="btn-primary" style="flex: 2; font-size: 1.1rem; padding: 1rem;">Guardar y Usar Perfil</button>
+                            <button type="button" class="btn-secondary" id="btn-cancel-create" style="flex: 1;">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="profiles-grid" class="profiles-grid">
+                    <!-- Perfiles cargados dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Loading overlay for Groq generation -->
+            <div id="generate-loader" class="loader-container fade-in" style="display: none;">
+                <div class="spinner"></div>
+                <p>Nuestra IA está preparando tus recomendaciones...</p>
+            </div>
+
+            <!-- Results container -->
+            <div id="results-container" style="display: none;">
+                <h2>Tu Itinerario Personalizado</h2>
+                <div id="itinerary-container" style="width: 100%;"></div>
+                
+                <div style="margin-top: 2rem; text-align: center;">
+                    <button class="btn-secondary" onclick="location.reload()">Empezar de nuevo</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script2.js') }}"></script>
+</body>
+</html>
